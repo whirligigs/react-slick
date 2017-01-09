@@ -49,6 +49,12 @@ export var InnerSlider = React.createClass({
         lazyLoadedList: lazyLoadedList
       });
     }
+
+    if (typeof window === 'undefined') {
+      this.serverInitialize(this.props);
+    } else {
+      this.setState({initialized: true});
+    }
   },
   componentDidMount: function componentDidMount() {
     // Hack for autoplay -- Inspect Later
@@ -125,8 +131,9 @@ export var InnerSlider = React.createClass({
     });
   },
   render: function () {
-    var className = classnames('slick-initialized', 'slick-slider', this.props.className, {
+    var className = classnames('slick-slider', this.props.className, {
       'slick-vertical': this.props.vertical,
+      'slick-initialized': this.state.initialized
     });
 
     var trackProps = {
