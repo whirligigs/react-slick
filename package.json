@@ -1,7 +1,7 @@
 {
   "name": "react-slick-ssr",
-  "version": "0.14.5",
-  "description": " React port of slick carousel",
+  "version": "0.14.5.1",
+  "description": " React port of slick carousel with dynamic transform width",
   "main": "./lib",
   "scripts": {
     "start": "gulp server",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akiran/react-slick.git"
+    "url": "git+https://github.com/whirligigs/react-slick.git"
   },
   "keywords": [
     "slick",
@@ -76,7 +76,7 @@
       "test-setup.js"
     ]
   },
-  "npmName": "react-slick",
+  "npmName": "react-slick-ssr-transform",
   "npmFileMap": [
     {
       "basePath": "/dist/",
@@ -86,9 +86,9 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/akiran/react-slick/issues"
+    "url": "https://github.com/whirligigs/react-slick/issues"
   },
-  "homepage": "https://github.com/akiran/react-slick",
+  "homepage": "https://github.com/whirligigs/react-slick",
   "directories": {
     "doc": "docs",
     "example": "examples",
