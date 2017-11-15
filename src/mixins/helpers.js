@@ -232,7 +232,7 @@ var helpers = {
 
     if (this.props.beforeChange) {
       var proposedLeft = this.props.beforeChange(this.state.currentSlide, currentSlide);
-      if (proposedLeft != null && !isNaN(proposedLeft)){
+      if (proposedLeft != null && !isNaN(proposedLeft) && this.props.infinite === false){
         targetLeft = currentLeft = proposedLeft;
       }
     }
