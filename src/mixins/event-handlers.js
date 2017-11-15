@@ -34,9 +34,9 @@ var EventHandlers = {
       }
     } else if (options.message === 'index') {
       targetSlide = parseInt(options.index);
-      if (targetSlide === options.currentSlide) {
-        return;
-      }
+      // if (targetSlide === options.currentSlide) {
+      //   return;
+      // }
     }
 
     this.slideHandler(targetSlide);
@@ -204,12 +204,11 @@ var EventHandlers = {
     const centerOffset = this.props.centerMode ? this.state.slideWidth * Math.floor(this.props.slidesToShow / 2) : 0;
 
     if (this.props.swipeToSlide) {
-      let swipedSlide;
+      let swipedSlide, slidesTraversed = 1;
 
       const slickList = ReactDOM.findDOMNode(this.list);
 
       const slides = slickList.querySelectorAll('.slick-slide');
-
       Array.from(slides).every((slide) => {
         if (!this.props.vertical) {
           if (slide.offsetLeft - centerOffset + (this.getWidth(slide) / 2) > this.state.swipeLeft * -1) {
@@ -225,9 +224,9 @@ var EventHandlers = {
 
         return true;
       });
-
-      const slidesTraversed = Math.abs(swipedSlide.dataset.index - this.state.currentSlide) || 1;
-
+      if (swipedSlide) {
+        slidesTraversed = Math.abs(swipedSlide.dataset.index - this.state.currentSlide);
+      }
       return slidesTraversed;
     } else {
       return this.props.slidesToScroll;

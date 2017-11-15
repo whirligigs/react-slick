@@ -231,7 +231,10 @@ var helpers = {
     }
 
     if (this.props.beforeChange) {
-      this.props.beforeChange(this.state.currentSlide, currentSlide);
+      var proposedLeft = this.props.beforeChange(this.state.currentSlide, currentSlide);
+      if (proposedLeft != null && !isNaN(proposedLeft)){
+        targetLeft = currentLeft = proposedLeft;
+      }
     }
 
     if (this.props.lazyLoad) {
